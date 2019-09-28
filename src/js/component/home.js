@@ -9,9 +9,11 @@ import { Navbar } from "./navbar.js";
 export class Home extends React.Component {
 	render() {
 		return (
-			<div>
-				<Navbar />
-			</div>
+			<React.Fragment>
+				<div>
+					<Navbar />
+				</div>
+			</React.Fragment>
 		);
 	}
 }

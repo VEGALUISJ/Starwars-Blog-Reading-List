@@ -2,6 +2,7 @@ import React from "react";
 
 //import your own components
 import { Card } from "./card.js";
+import { Bottom } from "./bottom.js";
 
 //include images into your bundle
 
@@ -24,9 +25,34 @@ export class Content extends React.Component {
 							<Card />
 							<Card />
 							<Card />
+							<Card />
+							<Card />
+							<Card />
+							<Card />
+							<Card />
 						</div>
 					</div>
 				</div>
+				<div className="tittlegrid2">
+					<h3 className="h1grid2">Planets</h3>
+				</div>
+				<div className="container">
+					<div className="row">
+						<div className="card-deck">
+							<Card />
+							<Card />
+							<Card />
+							<Card />
+							<Card />
+							<Card />
+							<Card />
+							<Card />
+							<Card />
+							<Card />
+						</div>
+					</div>
+				</div>
+				<Bottom />
 			</div>
 		);
 	}

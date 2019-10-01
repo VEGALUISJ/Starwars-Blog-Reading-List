@@ -11,19 +11,44 @@ export class Content extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			characters: []
+			characters: [],
+			planets: []
 		};
 	}
 
 	componentDidMount() {
-		fetch("https://swapi.co/api/people")
-			.then(reponse => reponse.json())
-			.then(({ result: characters }) => this.setState({ characters }));
+		fetch("https://swapi.co/api/people/?format=json")
+			.then(response => {
+				if (response.ok) {
+					return response.json();
+				} else {
+					console.log("Bad response");
+				}
+			})
+			.then(data => {
+				this.setState({ characters: data.results });
+			})
+			.catch(error => console.log(error));
+
+		fetch("https://swapi.co/api/planets/?format=json")
+			.then(response => {
+				if (response.ok) {
+					return response.json();
+				} else {
+					console.log("Bad response");
+				}
+			})
+			.then(data => {
+				this.setState({ planets: data.results });
+				console.log(data.results);
+			})
+			.catch(error => console.log(error));
 	}
 
 	render() {
-		let characters = this.state.characters;
-		console.log(characters);
+		const characters = this.state.characters;
+		const planets = this.state.planets;
+		console.log(planets);
 		return (
 			<div className="tittlebod">
 				<div>
@@ -35,16 +60,12 @@ export class Content extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="card-deck">
-							<Card content="this is a test" />
-							<Card />
-							<Card />
-							<Card />
-							<Card />
-							<Card />
-							<Card />
-							<Card />
-							<Card />
-							<Card />
+							{characters.map(actor => (
+								<Card
+									key={actor.mass + actor.height}
+									name={actor.name}
+								/>
+							))}
 						</div>
 					</div>
 				</div>
@@ -54,16 +75,12 @@ export class Content extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="card-deck">
-							<Card />
-							<Card />
-							<Card />
-							<Card />
-							<Card />
-							<Card />
-							<Card />
-							<Card />
-							<Card />
-							<Card />
+							{planets.map(worlds => (
+								<Card
+									key={worlds.orbital_period}
+									name={worlds.name}
+								/>
+							))}
 						</div>
 					</div>
 				</div>

@@ -11,7 +11,7 @@ export const Card = props => {
 			<div className="card">
 				<img src={arturito} className="card-img-top" />
 				<div className="card-body">
-					<h5 className="card-title">{props.content}</h5>
+					<h5 className="card-title">{props.name}</h5>
 					<p className="card-text">Database</p>
 				</div>
 			</div>
@@ -20,5 +20,5 @@ export const Card = props => {
 };
 
 Card.propTypes = {
-	content: PropTypes.string
+	name: PropTypes.string
 };

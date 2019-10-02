@@ -1,7 +1,7 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
 body{
-    background-image: url("https://cdn.pixabay.com/photo/2016/06/05/07/59/stars-1436950_960_720.jpg")
+    background-color: black;
 }
 
 .tittle{
@@ -10,6 +10,7 @@ body{
 
 .navbar{
     flex-direction: column;
+    background-image: url("http://cdn8.dissolve.com/p/D1307_52_005/D1307_52_005_0004_600.jpg")
 }
 
 .tittle{
@@ -80,6 +81,6 @@ display:table-cell;
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
-    background-color: black;
-    color: white;
+    background-color: gainsboro;
+    color: black;
 }
